@@ -1,0 +1,151 @@
+/* Import a beautiful Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Poppins:wght@300;400;600&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh; /* Changed to min-height for flexibility */
+    background: url('./images/pexels-pixabay-414660.jpg') no-repeat center/cover;
+    text-align: center;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: -1;
+    animation: fadeInBg 2s ease-in-out;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 2s ease-in-out;
+    width: 100%;
+    max-width: 1200px; /* Cap for very wide screens */
+}
+
+/* Styling the messages */
+.message p {
+    font-size: clamp(18px, 4vw, 32px); /* Scales between 18px and 32px */
+    font-weight: bold;
+    color: white;
+    margin: 5px 0;
+    line-height: 1.2;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+    font-family: 'Dancing Script', cursive;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    padding: 0 10px; /* Prevents text overflow on small screens */
+}
+
+/* Proceed Button */
+.proceed-btn {
+    font-size: clamp(16px, 3vw, 22px); /* Scales between 16px and 22px */
+    padding: clamp(10px, 2vw, 15px) clamp(20px, 4vw, 40px); /* Responsive padding */
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(45deg, #ff6b81, #ff4757);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
+
+.proceed-btn:hover {
+    background: linear-gradient(45deg, #ff4757, #ff6b81);
+    transform: scale(1.05);
+}
+
+/* Button Glow Effect */
+button {
+    font-size: clamp(16px, 3vw, 22px);
+    padding: clamp(12px, 2.5vw, 20px) clamp(20px, 4vw, 40px);
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(45deg, #ff6b81, #ff4757);
+    color: white;
+    cursor: pointer;
+    transition: 0.4s;
+    box-shadow: 0 4px 15px rgba(255, 107, 129, 0.5);
+    position: relative;
+    overflow: hidden;
+    font-weight: bold;
+}
+
+button:hover {
+    background: linear-gradient(45deg, #ff4757, #ff6b81);
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 71, 87, 0.6);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInBg {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Final background effect with blur */
+.final-bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('./images/The\ Mango\ again.jpg') no-repeat center/cover;
+    filter: blur(10px) brightness(50%);
+    z-index: -1;
+}
+
+/* Centering the final image */
+.message img {
+    display: block;
+    margin: 20px auto;
+    width: clamp(100px, 30%, 300px); /* Scales between 100px and 300px */
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+/* Game Styles */
+#gameCanvas {
+    border: 2px solid #ff6b81;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    width: 100%;
+    max-width: 800px;
+    height: auto; /* Aspect ratio handled in JS */
+}
+
+#score {
+    font-size: clamp(16px, 3vw, 24px);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 10px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
